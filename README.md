@@ -8,15 +8,6 @@ This allows for the simultaneous simulation of both real and fake messages in a 
 The simulated attacks from the group’s CAM injections will include: Position Attack and Offset Attack. 
 The simulated DENM attacks will include: Emergency Braking Attack, Traffic Jam Attack, and Traction Loss Attack
 
-v2x_attack_pipeline/
-├── config.py
-├── messages.py
-├── attacks.py
-├── artery_client.py
-├── carla_client.py
-├── router.py
-└── main.py
-
   High-level roles:
 messages.py – typed models for CAM / DENM, plus (de)serialization helpers.
 attacks.py – Strategy pattern for attacks; one class per attack.
