@@ -18,3 +18,43 @@ config.py – Central config (ports, probabilities, offsets, etc.).
 main.py – Wires everything together and runs the loop.
 
 Assuming Artery sends JSON over TCP (Can easily change later to ZMQ, files, REST, etc.).
+
+Process to run:
+
+Step 1 - Create venv (first time Only)
+python -m venv .venv
+
+Step 2 - Activate venv
+.\.venv\Scripts\activate
+
+Step 3 — Install dependencies (only first time)
+python -m pip install numpy
+
+Step 4 — If you are using CARLA API (simulator only)
+
+(Skip this if running the demo)
+$env:PYTHONPATH = "$env:PYTHONPATHC:\CARLA\WindowsNoEditor\PythonAPI\carla\dist\carla-<version>.eggC:\CARLA\WindowsNoEditor\PythonAPI\carla"
+
+Step 5 — Start simulators (simulator only)
+
+SUMO → Artery → CARLA
+(simulator ONLY)
+1. Launch SUMO
+2. Launch Artery
+3. Launch CARLA 
+
+Step 6 — Start the  Python server 
+
+(for demo)
+python run_server_demo.py
+
+(for simulators)
+python run_server_to_carla_api.py
+
+Step 7 — Start message source
+
+(for demo) Open a second terminal
+cd [your path]\CS5230_Vehicle_Cybersecurity\v2x_attack_pipeline.\.venv\Scripts\activate
+python fake_artery_sender.py
+
+Configure Artery to connect to your PC’s IP on port 9000.
